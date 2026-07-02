@@ -1,0 +1,53 @@
+item_id,title,category,brand,gender,age_group,attributes
+ITEM_001,Siyah kadın koşu spor ayakkabısı,Moda/Kadın/Ayakkabı/Spor,RunStep,kadın,yetişkin,renk:siyah; kullanım:koşu
+ITEM_002,Beyaz kadın spor ayakkabı,Moda/Kadın/Ayakkabı/Spor,RunStep,kadın,yetişkin,renk:beyaz; kullanım:spor
+ITEM_003,Siyah erkek koşu ayakkabısı,Moda/Erkek/Ayakkabı/Spor,RunStep,erkek,yetişkin,renk:siyah; kullanım:koşu
+ITEM_004,Siyah klasik kadın ayakkabı,Moda/Kadın/Ayakkabı/Klasik,CityWalk,kadın,yetişkin,renk:siyah; stil:klasik
+ITEM_005,Siyah spor ayakkabı bağcığı,Moda/Ayakkabı Aksesuarı/Bağcık,LaceUp,unisex,yetişkin,renk:siyah; ürün:bağcık
+ITEM_006,Porselen 6 kişilik yemek takımı,Ev/Mutfak/Yemek Takımı,Sofra,unknown,unknown,malzeme:porselen; kişi:6
+ITEM_007,Filtre kahve makinesi,Ev/Küçük Ev Aletleri/Kahve Makinesi,BrewCo,unknown,unknown,tip:filtre; güç:900W
+ITEM_008,Otomatik espresso kahve makinesi,Ev/Küçük Ev Aletleri/Kahve Makinesi,BrewCo,unknown,unknown,tip:espresso; otomatik:evet
+ITEM_009,Kahve makinesi temizleme tableti,Ev/Temizlik/Makine Temizleyici,CleanTab,unknown,unknown,ürün:temizleme tableti; adet:10
+ITEM_010,Porselen kahve fincanı,Ev/Mutfak/Fincan,Sofra,unknown,unknown,malzeme:porselen; ürün:fincan
+ITEM_011,Sarı çocuk yağmur botu,Moda/Çocuk/Ayakkabı/Yağmur Botu,MiniStep,unisex,çocuk,renk:sarı; su geçirmez:evet
+ITEM_012,Kız çocuk pembe yağmur çizmesi,Moda/Çocuk/Ayakkabı/Yağmur Botu,MiniStep,kadın,çocuk,renk:pembe; su geçirmez:evet
+ITEM_013,Kadın siyah deri çizme,Moda/Kadın/Ayakkabı/Çizme,CityWalk,kadın,yetişkin,malzeme:deri; renk:siyah
+ITEM_014,Erkek çocuk kapüşonlu kışlık mont,Moda/Çocuk/Dış Giyim/Mont,MiniWear,erkek,çocuk,mevsim:kış; kapüşon:var
+ITEM_015,Kablosuz bluetooth kulak üstü kulaklık,Elektronik/Ses/Kulaklık,SoundGo,unisex,yetişkin,bağlantı:bluetooth; kablosuz:evet
+ITEM_016,Kablolu kulak içi kulaklık,Elektronik/Ses/Kulaklık,SoundGo,unisex,yetişkin,bağlantı:kablolu
+ITEM_017,Kablosuz bluetooth hoparlör,Elektronik/Ses/Hoparlör,SoundGo,unisex,yetişkin,bağlantı:bluetooth; ürün:hoparlör
+ITEM_018,Bluetooth kulaklık taşıma kılıfı,Elektronik/Aksesuar/Kulaklık Kılıfı,CaseIt,unisex,yetişkin,ürün:kılıf
+ITEM_019,Beyaz porselen servis ve yemek tabağı,Ev/Mutfak/Tabak,Sofra,unknown,unknown,malzeme:porselen; renk:beyaz
+ITEM_020,Renkli plastik piknik tabağı,Ev/Mutfak/Tabak,Picnic,unknown,unknown,malzeme:plastik
+ITEM_021,Porselen tabak sergileme standı,Ev/Dekorasyon/Tabak Standı,Display,unknown,unknown,ürün:stand
+ITEM_022,Lacivert erkek çocuk şişme mont,Moda/Çocuk/Dış Giyim/Mont,MiniWear,erkek,çocuk,renk:lacivert; tip:şişme
+ITEM_023,Kadın yetişkin uzun kışlık mont,Moda/Kadın/Dış Giyim/Mont,WarmCo,kadın,yetişkin,mevsim:kış; boy:uzun
+ITEM_024,Erkek çocuk yağmurluk,Moda/Çocuk/Dış Giyim/Yağmurluk,MiniWear,erkek,çocuk,ürün:yağmurluk
+ITEM_025,Kırmızı silikon telefon kılıfı,Elektronik/Telefon Aksesuarı/Kılıf,CaseIt,unisex,yetişkin,renk:kırmızı; malzeme:silikon
+ITEM_026,Mavi silikon telefon kılıfı,Elektronik/Telefon Aksesuarı/Kılıf,CaseIt,unisex,yetişkin,renk:mavi; malzeme:silikon
+ITEM_027,Kırmızı tablet kılıfı,Elektronik/Tablet Aksesuarı/Kılıf,CaseIt,unisex,yetişkin,renk:kırmızı; cihaz:tablet
+ITEM_028,Telefon ekran koruyucu cam,Elektronik/Telefon Aksesuarı/Ekran Koruyucu,GlassPro,unisex,yetişkin,ürün:ekran koruyucu
+ITEM_029,Beş raflı ahşap kitaplık,Ev/Mobilya/Kitaplık,WoodHome,unknown,unknown,malzeme:ahşap; raf:5
+ITEM_030,Dört raflı metal kitaplık,Ev/Mobilya/Kitaplık,MetalHome,unknown,unknown,malzeme:metal; raf:4
+ITEM_031,Ahşap kitap tutucu dekoratif,Ev/Dekorasyon/Kitap Tutucu,WoodHome,unknown,unknown,malzeme:ahşap; ürün:kitap tutucu
+ITEM_032,Bebek bezi 5 numara 40 adet,Anne Bebek/Bebek Bezi,BabySoft,bebek,bebek,numara:5; adet:40
+ITEM_033,Bebek bezi 4 numara 44 adet,Anne Bebek/Bebek Bezi,BabySoft,bebek,bebek,numara:4; adet:44
+ITEM_034,Yetişkin hasta bezi büyük beden,Sağlık/Hasta Bezi,CarePlus,unisex,yetişkin,beden:büyük
+ITEM_035,Kadın siyah midi elbise,Moda/Kadın/Elbise,Dressy,kadın,yetişkin,renk:siyah; boy:midi
+ITEM_036,Kadın kırmızı midi elbise,Moda/Kadın/Elbise,Dressy,kadın,yetişkin,renk:kırmızı; boy:midi
+ITEM_037,Kadın siyah pamuklu tişört,Moda/Kadın/Üst Giyim/Tişört,Basic,kadın,yetişkin,renk:siyah; ürün:tişört
+ITEM_038,Güneş enerjili LED bahçe lambası,Bahçe/Aydınlatma/Bahçe Lambası,SolarGarden,unknown,unknown,enerji:güneş; tip:LED
+ITEM_039,Elektrikli kablolu bahçe lambası,Bahçe/Aydınlatma/Bahçe Lambası,GardenLux,unknown,unknown,enerji:elektrik; bağlantı:kablolu
+ITEM_040,Taşınabilir güneş paneli,Elektronik/Enerji/Güneş Paneli,SolarGo,unknown,unknown,ürün:güneş paneli
+ITEM_041,Paslanmaz çelik termos 1 litre,Ev/Mutfak/Termos,Thermo,unknown,unknown,malzeme:çelik; hacim:1 litre
+ITEM_042,Paslanmaz çelik termos 500 ml,Ev/Mutfak/Termos,Thermo,unknown,unknown,malzeme:çelik; hacim:500 ml
+ITEM_043,Plastik spor matarası 1 litre,Spor/Aksesuar/Matara,FitBottle,unknown,unknown,malzeme:plastik; hacim:1 litre
+ITEM_044,Cam su şişesi 1 litre,Ev/Mutfak/Şişe,GlassHome,unknown,unknown,malzeme:cam; hacim:1 litre
+ITEM_045,Kablosuz bluetooth kulak içi kulaklık,Elektronik/Ses/Kulaklık,SoundGo,unisex,yetişkin,bağlantı:bluetooth; kablosuz:evet
+ITEM_046,Altılı porselen yemek tabağı seti,Ev/Mutfak/Tabak,Sofra,unknown,unknown,malzeme:porselen; adet:6
+ITEM_047,Kırmızı darbeye dayanıklı telefon kılıfı,Elektronik/Telefon Aksesuarı/Kılıf,CaseIt,unisex,yetişkin,renk:kırmızı; koruma:darbe
+ITEM_048,Masif ahşap modern kitaplık,Ev/Mobilya/Kitaplık,WoodHome,unknown,unknown,malzeme:masif ahşap
+ITEM_049,Bebek bezi 5 numara ikili paket,Anne Bebek/Bebek Bezi,BabySoft,bebek,bebek,numara:5; paket:ikili
+ITEM_050,Kadın siyah uzun elbise,Moda/Kadın/Elbise,Dressy,kadın,yetişkin,renk:siyah; boy:uzun
+ITEM_051,Solar güneş enerjili bahçe aydınlatması,Bahçe/Aydınlatma/Bahçe Lambası,SolarGarden,unknown,unknown,enerji:güneş; kullanım:bahçe
+ITEM_052,Çelik vakumlu termos 1 L,Ev/Mutfak/Termos,Thermo,unknown,unknown,malzeme:çelik; hacim:1 L

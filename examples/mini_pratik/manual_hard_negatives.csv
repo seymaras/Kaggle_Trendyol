@@ -1,0 +1,13 @@
+id,term_id,item_id,label,reason
+NEG_001,TERM_001,ITEM_003,0,cinsiyet uyuşmuyor
+NEG_002,TERM_002,ITEM_009,0,makine değil temizleme ürünü
+NEG_003,TERM_003,ITEM_013,0,yetişkin ürünü
+NEG_004,TERM_004,ITEM_017,0,kulaklık değil hoparlör
+NEG_005,TERM_005,ITEM_021,0,tabak değil tabak standı
+NEG_006,TERM_006,ITEM_023,0,kadın yetişkin ürünü
+NEG_007,TERM_007,ITEM_027,0,telefon değil tablet kılıfı
+NEG_008,TERM_008,ITEM_031,0,kitaplık değil kitap tutucu
+NEG_009,TERM_009,ITEM_033,0,"numara 4, aranan 5"
+NEG_010,TERM_010,ITEM_036,0,"renk kırmızı, aranan siyah"
+NEG_011,TERM_011,ITEM_039,0,güneş enerjili değil
+NEG_012,TERM_012,ITEM_042,0,"500 ml, aranan 1 litre"
