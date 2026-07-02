@@ -1,0 +1,44 @@
+term_id,item_id,query,title,category,brand,gender,age_group,attributes,label,negative_type,negative_confidence
+TERM_008,ITEM_034,ahşap kitaplık,yetişkin hasta bezi büyük beden,sağlık hasta bezi,careplus,unisex,yetişkin,beden büyük,0,easy_random,high
+TERM_008,ITEM_006,ahşap kitaplık,porselen 6 kişilik yemek takımı,ev mutfak yemek takımı,sofra,unknown,unknown,malzeme porselen kişi 6,0,same_top_category_hard,medium
+TERM_003,ITEM_004,çocuk yağmur botu,siyah klasik kadın ayakkabı,moda kadın ayakkabı klasik,citywalk,kadın,yetişkin,renk siyah stil klasik,0,same_top_category_hard,medium
+TERM_007,ITEM_032,kırmızı telefon kılıfı,bebek bezi 5 numara 40 adet,anne bebek bebek bezi,babysoft,bebek,bebek,numara 5 adet 40,0,easy_random,high
+TERM_001,ITEM_033,siyah kadın spor ayakkabı,bebek bezi 4 numara 44 adet,anne bebek bebek bezi,babysoft,bebek,bebek,numara 4 adet 44,0,different_top_category,high
+TERM_004,ITEM_034,kablosuz bluetooth kulaklık,yetişkin hasta bezi büyük beden,sağlık hasta bezi,careplus,unisex,yetişkin,beden büyük,0,easy_random,high
+TERM_005,ITEM_019,porselen yemek tabağı,beyaz porselen servis ve yemek tabağı,ev mutfak tabak,sofra,unknown,unknown,malzeme porselen renk beyaz,1,positive,not_applicable
+TERM_001,ITEM_011,siyah kadın spor ayakkabı,sarı çocuk yağmur botu,moda çocuk ayakkabı yağmur botu,ministep,unisex,çocuk,renk sarı su geçirmez evet,0,attribute_mismatch,medium_high
+TERM_009,ITEM_032,bebek bezi 5 numara,bebek bezi 5 numara 40 adet,anne bebek bebek bezi,babysoft,bebek,bebek,numara 5 adet 40,1,positive,not_applicable
+TERM_004,ITEM_015,kablosuz bluetooth kulaklık,kablosuz bluetooth kulak üstü kulaklık,elektronik ses kulaklık,soundgo,unisex,yetişkin,bağlantı bluetooth kablosuz evet,1,positive,not_applicable
+TERM_007,ITEM_025,kırmızı telefon kılıfı,kırmızı silikon telefon kılıfı,elektronik telefon aksesuarı kılıf,caseit,unisex,yetişkin,renk kırmızı malzeme silikon,1,positive,not_applicable
+TERM_007,ITEM_018,kırmızı telefon kılıfı,bluetooth kulaklık taşıma kılıfı,elektronik aksesuar kulaklık kılıfı,caseit,unisex,yetişkin,ürün kılıf,0,same_top_category_hard,medium
+TERM_004,ITEM_013,kablosuz bluetooth kulaklık,kadın siyah deri çizme,moda kadın ayakkabı çizme,citywalk,kadın,yetişkin,malzeme deri renk siyah,0,different_top_category,high
+TERM_007,ITEM_028,kırmızı telefon kılıfı,telefon ekran koruyucu cam,elektronik telefon aksesuarı ekran koruyucu,glasspro,unisex,yetişkin,ürün ekran koruyucu,0,brand_hard,medium
+TERM_010,ITEM_002,kadın siyah elbise,beyaz kadın spor ayakkabı,moda kadın ayakkabı spor,runstep,kadın,yetişkin,renk beyaz kullanım spor,0,title_similar_hard,low_medium
+TERM_003,ITEM_023,çocuk yağmur botu,kadın yetişkin uzun kışlık mont,moda kadın dış giyim mont,warmco,kadın,yetişkin,mevsim kış boy uzun,0,attribute_mismatch,medium_high
+TERM_012,ITEM_043,çelik termos 1 litre,plastik spor matarası 1 litre,spor aksesuar matara,fitbottle,unknown,unknown,malzeme plastik hacim 1 litre,0,easy_random,high
+TERM_001,ITEM_005,siyah kadın spor ayakkabı,siyah spor ayakkabı bağcığı,moda ayakkabı aksesuarı bağcık,laceup,unisex,yetişkin,renk siyah ürün bağcık,0,title_similar_hard,low_medium
+TERM_010,ITEM_035,kadın siyah elbise,kadın siyah midi elbise,moda kadın elbise,dressy,kadın,yetişkin,renk siyah boy midi,1,positive,not_applicable
+TERM_004,ITEM_017,kablosuz bluetooth kulaklık,kablosuz bluetooth hoparlör,elektronik ses hoparlör,soundgo,unisex,yetişkin,bağlantı bluetooth ürün hoparlör,0,title_similar_hard,low_medium
+TERM_003,ITEM_047,çocuk yağmur botu,kırmızı darbeye dayanıklı telefon kılıfı,elektronik telefon aksesuarı kılıf,caseit,unisex,yetişkin,renk kırmızı koruma darbe,0,different_top_category,high
+TERM_002,ITEM_030,kahve makinesi,dört raflı metal kitaplık,ev mobilya kitaplık,metalhome,unknown,unknown,malzeme metal raf 4,0,same_top_category_hard,medium
+TERM_001,ITEM_001,siyah kadın spor ayakkabı,siyah kadın koşu spor ayakkabısı,moda kadın ayakkabı spor,runstep,kadın,yetişkin,renk siyah kullanım koşu,1,positive,not_applicable
+TERM_006,ITEM_032,erkek çocuk mont,bebek bezi 5 numara 40 adet,anne bebek bebek bezi,babysoft,bebek,bebek,numara 5 adet 40,0,different_top_category,high
+TERM_005,ITEM_026,porselen yemek tabağı,mavi silikon telefon kılıfı,elektronik telefon aksesuarı kılıf,caseit,unisex,yetişkin,renk mavi malzeme silikon,0,easy_random,high
+TERM_006,ITEM_022,erkek çocuk mont,lacivert erkek çocuk şişme mont,moda çocuk dış giyim mont,miniwear,erkek,çocuk,renk lacivert tip şişme,1,positive,not_applicable
+TERM_012,ITEM_041,çelik termos 1 litre,paslanmaz çelik termos 1 litre,ev mutfak termos,thermo,unknown,unknown,malzeme çelik hacim 1 litre,1,positive,not_applicable
+TERM_007,ITEM_034,kırmızı telefon kılıfı,yetişkin hasta bezi büyük beden,sağlık hasta bezi,careplus,unisex,yetişkin,beden büyük,0,different_top_category,high
+TERM_002,ITEM_007,kahve makinesi,filtre kahve makinesi,ev küçük ev aletleri kahve makinesi,brewco,unknown,unknown,tip filtre güç 900w,1,positive,not_applicable
+TERM_001,ITEM_043,siyah kadın spor ayakkabı,plastik spor matarası 1 litre,spor aksesuar matara,fitbottle,unknown,unknown,malzeme plastik hacim 1 litre,0,easy_random,high
+TERM_005,ITEM_044,porselen yemek tabağı,cam su şişesi 1 litre,ev mutfak şişe,glasshome,unknown,unknown,malzeme cam hacim 1 litre,0,same_gender_age_hard,medium
+TERM_003,ITEM_011,çocuk yağmur botu,sarı çocuk yağmur botu,moda çocuk ayakkabı yağmur botu,ministep,unisex,çocuk,renk sarı su geçirmez evet,1,positive,not_applicable
+TERM_005,ITEM_015,porselen yemek tabağı,kablosuz bluetooth kulak üstü kulaklık,elektronik ses kulaklık,soundgo,unisex,yetişkin,bağlantı bluetooth kablosuz evet,0,different_top_category,high
+TERM_007,ITEM_045,kırmızı telefon kılıfı,kablosuz bluetooth kulak içi kulaklık,elektronik ses kulaklık,soundgo,unisex,yetişkin,bağlantı bluetooth kablosuz evet,0,same_gender_age_hard,medium
+TERM_002,ITEM_043,kahve makinesi,plastik spor matarası 1 litre,spor aksesuar matara,fitbottle,unknown,unknown,malzeme plastik hacim 1 litre,0,different_top_category,high
+TERM_011,ITEM_038,güneş enerjili bahçe lambası,güneş enerjili led bahçe lambası,bahçe aydınlatma bahçe lambası,solargarden,unknown,unknown,enerji güneş tip led,1,positive,not_applicable
+TERM_002,ITEM_046,kahve makinesi,altılı porselen yemek tabağı seti,ev mutfak tabak,sofra,unknown,unknown,malzeme porselen adet 6,0,same_gender_age_hard,medium
+TERM_012,ITEM_042,çelik termos 1 litre,paslanmaz çelik termos 500 ml,ev mutfak termos,thermo,unknown,unknown,malzeme çelik hacim 500 ml,0,title_similar_hard,low_medium
+TERM_012,ITEM_044,çelik termos 1 litre,cam su şişesi 1 litre,ev mutfak şişe,glasshome,unknown,unknown,malzeme cam hacim 1 litre,0,same_gender_age_hard,medium
+TERM_008,ITEM_029,ahşap kitaplık,beş raflı ahşap kitaplık,ev mobilya kitaplık,woodhome,unknown,unknown,malzeme ahşap raf 5,1,positive,not_applicable
+TERM_003,ITEM_024,çocuk yağmur botu,erkek çocuk yağmurluk,moda çocuk dış giyim yağmurluk,miniwear,erkek,çocuk,ürün yağmurluk,0,title_similar_hard,low_medium
+TERM_011,ITEM_039,güneş enerjili bahçe lambası,elektrikli kablolu bahçe lambası,bahçe aydınlatma bahçe lambası,gardenlux,unknown,unknown,enerji elektrik bağlantı kablolu,0,same_top_category_hard,medium
+TERM_006,ITEM_038,erkek çocuk mont,güneş enerjili led bahçe lambası,bahçe aydınlatma bahçe lambası,solargarden,unknown,unknown,enerji güneş tip led,0,easy_random,high
