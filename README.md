@@ -26,6 +26,17 @@ jupyter-lab
 Tarayıcı açıldığında `notebooks/trendyol_negative_sampling_kaggle.ipynb` dosyasını seçin.
 Notebook kernel olarak **Python (Kaggle Trendyol)** kullanacak şekilde ayarlanmıştır.
 
+## Pipeline v2
+
+Query-driven hard-negative mining, dürüst retrieval validasyonu, LightGBM, GPU cross-encoder ve ensemble akışı için [PIPELINE_V2.md](docs/PIPELINE_V2.md) belgesini izleyin.
+
+Hızlı kontrol:
+
+```bash
+make test
+make smoke
+```
+
 ## Gerçek yarışma verisi
 
 Şu dosyaları `data/` klasörüne koyabilirsiniz:
