@@ -37,6 +37,23 @@ make test
 make smoke
 ```
 
+## Relevance pipeline v3
+
+Query-cold/semantic/test-like validation, fold-local false-negative filtreleme,
+Qwen3/BGE reranker, bi-encoder mining, cross-fitted calibration ve güvenli
+submission akışı için [PIPELINE_V3.md](docs/PIPELINE_V3.md) belgesini ve
+`notebooks/06_relevance_v3.ipynb` notebook'unu kullanın.
+Gerçek CSV'lerde ölçülen ilk bulgular [V3_AUDIT_FINDINGS.md](docs/V3_AUDIT_FINDINGS.md)
+dosyasındadır.
+
+İlk uçtan uca CPU smoke koşusu:
+
+```bash
+python src/trendyol_v3_pipeline.py \
+  --debug --debug-train-pairs 5000 --debug-submission-pairs 5000 \
+  --output-dir artifacts/v3/debug_run
+```
+
 ## Gerçek yarışma verisi
 
 Şu dosyaları `data/` klasörüne koyabilirsiniz:

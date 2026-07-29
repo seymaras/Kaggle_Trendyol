@@ -43,6 +43,7 @@ def make_model(seed: int, n_estimators: int = 1200):
         n_estimators=n_estimators, learning_rate=0.03, num_leaves=63,
         min_child_samples=100, subsample=0.8, colsample_bytree=0.8,
         reg_lambda=2.0, objective="binary", random_state=seed, n_jobs=-1,
+        force_col_wise=True, verbosity=-1,
     )
 
 
@@ -63,54 +64,77 @@ def train(args, out: Path):
     train = pd.read_parquet(args.train)
     train = normalize_frame(train)
     train.loc[train["label"].eq(0), "sample_weight"] *= args.negative_weight_multiplier
-    items = normalize_frame(pd.read_csv(args.data_dir / "items.csv", usecols=ITEM_COLUMNS, dtype="string").assign(query=""))
-    fielded = FieldedTfidf(args.tfidf_max_features).fit(items)
+    if args.base_model_bundle:
+        fielded = joblib.load(args.base_model_bundle)["fielded_tfidf"]
+        items = None
+        print(f"TF-IDF reused from {args.base_model_bundle}", flush=True)
+    else:
+        items = normalize_frame(pd.read_csv(args.data_dir / "items.csv", usecols=ITEM_COLUMNS, dtype="string").assign(query=""))
+        fielded = FieldedTfidf(args.tfidf_max_features).fit(items)
     base = build_classical_features(train, fielded)
     meta = train[["term_id", "item_id", "label", "sample_weight", "top_category", "leaf_category"]].reset_index(drop=True)
     features = add_query_level_features(pd.concat([meta, base.reset_index(drop=True)], axis=1))
     names = model_feature_names(features)
-    folds = stable_term_folds(train["term_id"], args.n_splits, args.seed)
+    transductive = (
+        train["is_transductive"].fillna(False).astype(bool)
+        if "is_transductive" in train else pd.Series(False, index=train.index)
+    )
+    evaluation_terms = train.loc[~transductive, "term_id"]
+    folds = stable_term_folds(evaluation_terms, args.n_splits, args.seed)
     fold_map = folds.set_index("term_id")["fold"]
-    row_fold = train["term_id"].map(fold_map).to_numpy()
-    oof = np.zeros(len(train), dtype=np.float32)
+    row_fold = train["term_id"].map(fold_map).fillna(-1).to_numpy(dtype=np.int16)
+    train_meta = train[["term_id", "item_id", "label", "sample_weight"]].copy()
+    del train
+    gc.collect()
+    oof = np.full(len(train_meta), np.nan, dtype=np.float32)
     reports = []
     _, early_stopping, log_evaluation = require_lightgbm()
     for fold in range(args.n_splits):
         tr, va = np.flatnonzero(row_fold != fold), np.flatnonzero(row_fold == fold)
         model = make_model(args.seed + fold)
         model.fit(
-            features.iloc[tr][names], train.iloc[tr]["label"], sample_weight=train.iloc[tr]["sample_weight"],
-            eval_set=[(features.iloc[va][names], train.iloc[va]["label"])], eval_metric="binary_logloss",
-            eval_sample_weight=[train.iloc[va]["sample_weight"]],
+            features.iloc[tr][names], train_meta.iloc[tr]["label"], sample_weight=train_meta.iloc[tr]["sample_weight"],
+            eval_set=[(features.iloc[va][names], train_meta.iloc[va]["label"])], eval_metric="binary_logloss",
+            eval_sample_weight=[train_meta.iloc[va]["sample_weight"]],
             callbacks=[early_stopping(80, verbose=False), log_evaluation(0)],
         )
         oof[va] = model.predict_proba(features.iloc[va][names])[:, 1]
-        threshold, score = tune_threshold(train.iloc[va]["label"].to_numpy(), oof[va])
+        threshold, score = tune_threshold(train_meta.iloc[va]["label"].to_numpy(), oof[va])
         reports.append({
             "fold": fold, "rows": len(va), "macro_f1": score,
             "threshold": threshold, "best_iteration": model.best_iteration_,
             "positive_prediction_rate": float((oof[va] >= threshold).mean()),
         })
-    threshold, score = tune_threshold(train["label"].to_numpy(), oof)
+        print(f"fold={fold} macro_f1={score:.6f} threshold={threshold:.2f}", flush=True)
+    evaluation_rows = np.flatnonzero(~transductive.to_numpy())
+    threshold, score = tune_threshold(train_meta.iloc[evaluation_rows]["label"].to_numpy(), oof[evaluation_rows])
     reports.append({
-        "fold": "oof", "rows": len(train), "macro_f1": score,
+        "fold": "oof", "rows": len(evaluation_rows), "macro_f1": score,
         "threshold": threshold,
         "best_iteration": int(np.median([r["best_iteration"] for r in reports])),
-        "positive_prediction_rate": float((oof >= threshold).mean()),
+        "positive_prediction_rate": float((oof[evaluation_rows] >= threshold).mean()),
+        "transductive_train_rows": int(transductive.sum()),
     })
     final_model = make_model(args.seed, int(reports[-1]["best_iteration"] * 1.1))
-    final_model.fit(features[names], train["label"], sample_weight=train["sample_weight"])
+    final_model.fit(features[names], train_meta["label"], sample_weight=train_meta["sample_weight"])
     pd.DataFrame(reports).to_csv(out / "cv_report.csv", index=False)
     folds.to_parquet(out / "term_folds.parquet", index=False)
-    pd.DataFrame({"term_id": train["term_id"], "item_id": train["item_id"], "label": train["label"], "probability": oof}).to_parquet(out / "oof_probabilities.parquet", index=False)
+    pd.DataFrame({
+        "term_id": train_meta["term_id"], "item_id": train_meta["item_id"], "label": train_meta["label"],
+        "probability": oof, "is_transductive": transductive.to_numpy(),
+    }).to_parquet(out / "oof_probabilities.parquet", index=False)
     joblib.dump({"model": final_model, "fielded_tfidf": fielded, "features": names, "threshold": threshold}, out / "model.joblib")
     return final_model, fielded, names, threshold, items
 
 
 def inference(args, out: Path, model, fielded, names, threshold, items):
+    if items is None:
+        items = normalize_frame(
+            pd.read_csv(args.data_dir / "items.csv", usecols=ITEM_COLUMNS, dtype="string").assign(query="")
+        )
     pairs = pd.read_csv(args.data_dir / "submission_pairs.csv", dtype="string")
     terms = pd.read_csv(args.data_dir / "terms.csv", usecols=["term_id", "query"], dtype="string")
-    raw_dir = out / "feature_shards"
+    raw_dir = args.reuse_feature_dir or (out / "feature_shards")
     raw_dir.mkdir(exist_ok=True)
     shard_paths = []
     for shard, start in enumerate(range(0, len(pairs), args.chunk_size)):
@@ -154,6 +178,8 @@ def main() -> None:
     parser.add_argument("--tfidf-max-features", type=int, default=40_000)
     parser.add_argument("--chunk-size", type=int, default=100_000)
     parser.add_argument("--negative-weight-multiplier", type=float, default=1.0)
+    parser.add_argument("--reuse-feature-dir", type=Path)
+    parser.add_argument("--base-model-bundle", type=Path)
     parser.add_argument("--skip-inference", action="store_true")
     args = parser.parse_args()
     if args.skip_inference:

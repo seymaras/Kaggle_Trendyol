@@ -58,6 +58,10 @@ THRESHOLD_PATH = EXPERIMENT_DIR / "threshold.txt"
 CV_REPORT_PATH = EXPERIMENT_DIR / "cv_report.csv"
 SUBMISSION_PATH = EXPERIMENT_DIR / "submission.csv"
 PROBABILITY_PATH = EXPERIMENT_DIR / "probabilities.parquet"
+# P0: hybrid/ratio submission'ları için sabit konumda, sade (id, prob) şeması.
+BASELINE_PROBABILITIES_PATH = Path(
+    os.getenv("BASELINE_PROBABILITIES_PATH", str(ARTIFACTS_DIR / "baseline_probabilities.parquet"))
+)
 FOLD_PATH = EXPERIMENT_DIR / "term_folds.parquet"
 
 
@@ -416,6 +420,16 @@ def main() -> None:
     submission, probabilities = predict_submission(model, threshold, tfidf_index, query_vectors, terms, items)
     validate_probability_frame(probabilities, expected_rows=len(submission))
     probabilities.to_parquet(PROBABILITY_PATH, index=False)
+    # P0: predict_proba çıktısını sabit konuma sade (id, prob) şemasıyla yaz.
+    # Submission üretimini bozmaz; make_submission_from_probs.py bunu tüketir.
+    baseline_probabilities = (
+        probabilities[["id", "probability"]]
+        .rename(columns={"probability": "prob"})
+        .reset_index(drop=True)
+    )
+    BASELINE_PROBABILITIES_PATH.parent.mkdir(parents=True, exist_ok=True)
+    baseline_probabilities.to_parquet(BASELINE_PROBABILITIES_PATH, index=False)
+    print(f"Baseline olasılıkları: {BASELINE_PROBABILITIES_PATH} ({len(baseline_probabilities):,} satır, kolonlar: id, prob)")
     if USE_FULL_SUBMISSION:
         sample_submission = pd.read_csv(locate_data_file("sample_submission.csv"), dtype={"id": "string", "prediction": "int8"})
         validate_submission(submission, sample_submission)

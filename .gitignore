@@ -25,4 +25,19 @@ artifacts/*
 !artifacts/README.md
 *.joblib
 *.pkl
+checkpoints/
+
+# Large local-only bundles, zips, and Colab data dumps (not for GitHub)
+*.zip
+*.parquet
+COLAB_TEK_HUCRE.py
+Kaggle_Trendyol_colab/
+colab/
+colab_official_engine_bundle/
+colab_official_engine_lite_bundle/
+kaggle_engine_dataset/
+kaggle_engine_kernel/
+Kaggle_Trendyol_sprint_v4_train/
+Kaggle_Trendyol_sprint_v4_train 2/
+catboost_info/
 

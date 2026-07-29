@@ -1,0 +1,14 @@
+-r requirements.txt
+lightgbm>=4.3,<5
+torch>=2.2,<3
+transformers>=4.51.3,<5
+sentence-transformers>=5.1,<6
+accelerate>=1.0,<2
+peft>=0.15,<1
+bitsandbytes>=0.45,<1; platform_system != "Darwin"
+einops>=0.8,<1
+faiss-cpu>=1.8,<2
+sparse-dot-topn>=1.1,<2
+sentencepiece>=0.2,<1
+catboost>=1.2,<2
+optuna>=3.6,<5
