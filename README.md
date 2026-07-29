@@ -2,6 +2,18 @@
 
 Arama terimi–ürün çiftlerinin alakalı (`1`) veya alakasız (`0`) olduğunu tahmin etme projesi.
 
+## Sonuçlar
+
+Metrik: **Macro-F1** (3.359.679 satır, 32.185 test terimi).
+
+| Aşama | Yaklaşım | Public LB Macro-F1 |
+| --- | --- | --- |
+| v6 | Klasik özellikler + LightGBM/CatBoost ensemble | 0.874 |
+| LLM konsensüs (anchor) | Çoklu LLM (Qwen3-30B, Mistral-24B, GPT-OSS-20B) konsensüs etiketleme | 0.901 |
+| **En iyi (final)** | 0.901 anchor + Qwen∧Mistral strict flip birleşimi | **0.915** |
+
+Denenip **LB'de düşüş verdiği için elenen** yaklaşımlar da var: broad-LLM konsensüs + yapısal kural + stack (0.884), cross-encoder distilasyonu ve orta-güven LLM bandı genişletmeleri (ikisi de 0.915'te düz kaldı — sinyal tükenmişti). Yarışmanın resmi doğrulama verisi olmadığı (train pozitif-only, train/test terim id'leri ayrık) için model seçimi tamamen public leaderboard sinyaline dayandırıldı; detaylar [V3_AUDIT_FINDINGS.md](docs/V3_AUDIT_FINDINGS.md) içinde.
+
 ## Proje yapısı
 
 ```text
